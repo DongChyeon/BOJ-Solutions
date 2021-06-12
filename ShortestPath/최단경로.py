@@ -13,7 +13,7 @@ for _ in range(e):
     a, b, c = map(int, input().split())
     graph[a].append((b, c))
     
-# 다익스트라 알고리즘으로 각 정점가지의 최단거리를 구함
+# 다익스트라 알고리즘으로 각 정점까지의 최단거리를 구함
 queue = []
 heapq.heappush(queue, (0, start))
 distance[start] = 0
