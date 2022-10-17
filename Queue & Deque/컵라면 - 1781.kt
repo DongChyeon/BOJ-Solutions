@@ -3,7 +3,7 @@ import java.util.*
 
 fun main() = with(BufferedReader(InputStreamReader(System.`in`))) {
     val n = readLine().toInt()
-    // 우선 순위 큐 구현 (데드 라인↓, 컵라면↑)
+    // 우선 순위 큐 구현 (데드라인↓, 컵라면↑)
     val pq = PriorityQueue { a: Pair<Int, Int>, b: Pair<Int, Int> -> 
     	when {
             a.first != b.first -> a.first.compareTo(b.first)
@@ -21,11 +21,11 @@ fun main() = with(BufferedReader(InputStreamReader(System.`in`))) {
 
     while (pq.isNotEmpty()) {
         var temp = pq.poll()
-        // 데드 라인이 푼 문제 수 보다 작을 경우 진행
+        // 현재 문제의 데드라인이 푼 문제 수 보다 클 경우 (현재 문제를 풀 수 있는 경우)
         if (pq2.size < temp.first) {
             pq2.add(temp.second)
         } else {
-            // 푼 문제 수가 데드 라인보다 크면
+            // 푼 문제 수가 현재 문제의 데드라인 이하라면 (현재 문제를 풀 수 없는 경우)
             // 가장 적게 라면을 준 문제보다 현재 문제를 푸는 것이 이득인지 고려
             if (temp.second > pq2.peek()) {
                 pq2.poll()
