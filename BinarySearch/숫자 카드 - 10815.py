@@ -1,5 +1,5 @@
 def binary_search(data, target):
-    start, end = 0, len(data)
+    start, end = 0, len(data) - 1
     
     while start <= end:
         mid = (start + end) // 2
